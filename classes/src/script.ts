@@ -124,29 +124,45 @@
 
 
 // protected:  class and subclasses
-// private: class only
+// // private: class only
+// class person {
+//     constructor(public name: string, protected age: number) {
+
+//     }
+
+//     sayHello() {
+//         console.log(this.name + ':' + ' Hello ')
+//     }
+//     printPerson() {
+//         console.log(this.getDetails())
+//     }
+//     private getDetails(): string {
+//         return `name:${this.name}\nage:${this.age}`
+//     }
+// }
+
+
+// const person1 = new person('sajjad', 19)
+// const person2 = new person('Amir', 20)
+
+// person1.name // public
+// //person1.age // protected
+// person1.sayHello()
+// person1.printPerson()
+// person2.printPerson()
+
+
+
 class person {
-    constructor(public name: string, protected age: number) {
+
+
+    constructor(public name: string) {
 
     }
 
-    sayHello() {
-        console.log(this.name + ':' + ' Hello ')
-    }
-    printPerson() {
-        console.log(this.getDetails())
-    }
-    private getDetails(): string {
-        return `name:${this.name}\nage:${this.age}`
-    }
+
 }
 
 
-const person1 = new person('sajjad', 19)
-const person2 = new person('Amir', 20)
+const person1 = new person('sajjad')
 
-person1.name // public
-//person1.age // protected 
-person1.sayHello()
-person1.printPerson()
-person2.printPerson()

@@ -28,6 +28,7 @@ app.get('/todos/:id', async (req: Request, res: Response, next: NextFunction) =>
 })
 
 
+
 type user = {
     id: number,
     name: string,
