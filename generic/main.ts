@@ -19,4 +19,10 @@ function test<T extends Person>(person: T): T {
     return person
 }
 
-test(teacher);
+///test(teacher);
+
+makeArr(1, Date.now());
+
+function makeArr<T, X = number>(value: T, value2: X): [T, X] {
+    return [value, value2];
+}

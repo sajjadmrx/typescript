@@ -1,6 +1,9 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import axios from 'axios';
 const app: Application = express();
+import { Schema, model, connect } from "mongoose";
+
+import { User } from './models/user';
 
 
 app.get('/', async (req: Request, res: Response, next: NextFunction) => {
@@ -109,6 +112,15 @@ const getTodo = async (id: number): Promise<todo> => {
         throw new Error('Todo not found')
     }
 }
-app.listen(3000, () => {
+
+
+app.post('/login', async (req: Request, res: Response, next: NextFunction) => {
+    const { username, email, password } = req.body;
+    User.findOne({ username, email, password })
+})
+
+
+app.listen(3000, async () => {
+    await connect('mongodb://localhost/express-ts')
     console.log('Server started on port 3000');
 });
